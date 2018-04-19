@@ -1,0 +1,5 @@
+venv
+*.pyc
+staticfiles
+.env
+step_by_step.txt

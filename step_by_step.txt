@@ -1,0 +1,61 @@
+### make projects folder
+mkdir projects
+cd projects/
+
+### create an empty github repo
+#https://github.com/ProgressBG-Python-Course/DjangoTests
+git clone git@github.com:ProgressBG-Python-Course/DjangoTests.git
+cd DjangoTests
+
+### clone heroku-django-template
+git clone https://github.com/heroku/heroku-django-template.git
+cd heroku-django-template
+rm -rf .git
+
+### install django in a virtual env:
+pipenv install django
+pipenv shell
+
+### Create the Project
+mv project_name heroku_django_ToDoList
+
+django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile ToDoApp
+tree.
+.
+├── heroku_django_ToDoList
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── static
+│   │   └── humans.txt
+│   ├── urls.py
+│   └── wsgi.py
+├── manage.py
+├── Pipfile
+├── Pipfile.lock
+├── Procfile
+├── README.md
+├── step_by_step.txt
+└── ToDoApp
+    ├── manage.py
+    ├── Pipfile
+    ├── Procfile
+    ├── README.md
+    └── ToDoApp
+        ├── __init__.py
+        ├── settings.py
+        ├── static
+        │   └── humans.txt
+        ├── urls.py
+        └── wsgi.py
+
+### Deployment to Heroku
+$ git init
+$ git add -A
+$ git config user.name "IP"
+$ git config user.email "progressbg.python.course@gmail.com"
+$ git commit -m "Initial commit"
+
+$ heroku create
+$ git push heroku master
+
+$ heroku run python manage.py migrate
